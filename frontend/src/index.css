@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --primary: #0969da;
+  --secondary: #f6f8fa;
+  --accent: #24292f;
+  --highlight: #ddf4ff;
+}
+
+.dark {
+  --bg: #0d1117;
+  --primary: #58a6ff;
+  --secondary: #161b22;
+  --accent: #c9d1d9;
+  --highlight: #1f6feb;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--primary);
+  transition: all 0.3s ease;
+}

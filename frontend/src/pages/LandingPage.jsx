@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
@@ -7,14 +8,19 @@ const LandingPage = () => {
       <nav className="w-full flex items-center justify-between px-8 py-4 shadow-sm bg-[var(--secondary)] text-sm">
         <h1 className="text-2xl font-extrabold tracking-wide">QuizGen AI</h1>
         <div className="space-x-4">
-          <button className="px-4 py-2 rounded-xl bg-transparent border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--highlight)] transition text-sm">
-            Sign In
-          </button>
-          <button className="px-4 py-2 rounded-xl bg-[var(--primary)] text-white hover:opacity-90 transition text-sm">
-            Sign Up
-          </button>
+          <Link to="/login">
+            <button className="px-4 py-2 rounded-xl bg-transparent border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--highlight)] transition text-sm">
+              Sign In
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="px-4 py-2 rounded-xl bg-[var(--primary)] text-white hover:opacity-90 transition text-sm">
+              Sign Up
+            </button>
+          </Link>
         </div>
       </nav>
+
 
       {/* Hero Section */}
         <header className="flex-1 flex flex-col items-center justify-center text-center px-4 py-8">

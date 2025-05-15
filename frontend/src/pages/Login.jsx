@@ -10,12 +10,12 @@ const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError('');
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await loginUser(formData);
@@ -27,46 +27,86 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--bg)] px-4">
-      <div className="w-full max-w-md bg-[var(--secondary)] rounded-2xl shadow-xl p-10">
-        <h2 className="text-3xl font-extrabold text-[var(--accent)] text-center mb-6">Welcome Back</h2>
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-[var(--accent)] mb-1">Username</label>
-            <input
-              type="text"
-              name="username"
-              required
-              value={formData.username}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-[var(--bg)] border border-[var(--tertiary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-            />
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: 'var(--bg)' }}>
+      <style>{`
+        .card {
+          background: var(--secondary);
+          border-radius: 8px;
+          box-shadow: var(--shadow);
+          padding: 20px;
+          max-width: 400px;
+          width: 100%;
+        }
+        .input-field {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 1px solid var(--border);
+          border-radius: 4px;
+          font-size: 16px;
+          color: var(--accent);
+        }
+        .input-field:focus {
+          outline: none;
+          border-color: var(--primary);
+          box-shadow: 0 0 0 3px var(--focus);
+        }
+        .btn {
+          width: 100%;
+          padding: 10px;
+          background-color: var(--primary);
+          color: white;
+          border: none;
+          border-radius: 4px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        .btn:hover {
+          background-color: color-mix(in srgb, var(--primary) 90%, black);
+        }
+        a {
+          color: var(--primary);
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      `}</style>
+      <div className="card">
+        <h2 className="text-2xl font-bold mb-6 text-[var(--accent)]">Sign In</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Email or Username"
+            required
+            className="input-field"
+          />
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+            required
+            className="input-field"
+          />
+          <div className="flex justify-between items-center text-sm">
+            <label className="flex items-center text-[var(--accent)]">
+              <input type="checkbox" className="mr-2" /> Remember me
+            </label>
+            <Link to="/forgot-password">Forgot Password?</Link>
           </div>
-          <div>
-            <label className="block text-sm font-medium text-[var(--accent)] mb-1">Password</label>
-            <input
-              type="password"
-              name="password"
-              required
-              value={formData.password}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-[var(--bg)] border border-[var(--tertiary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-            />
-          </div>
-          {error && <p className="text-sm text-red-500">{error}</p>}
-          <button
-            type="submit"
-            className="w-full py-2 rounded-md bg-[var(--primary)] text-white font-medium hover:opacity-90 transition"
-          >
+          {error && <p className="text-sm text-red-600">{error}</p>}
+          <button type="submit" className="btn">
             Sign In
           </button>
+          <p className="text-center text-sm text-[var(--accent)] mt-4">
+            Don’t have an account? <Link to="/signup">Create one</Link>
+          </p>
         </form>
-        <p className="text-sm text-center mt-6 text-[var(--accent)]">
-          Don’t have an account?{' '}
-          <Link to="/signup" className="text-[var(--primary)] font-medium hover:underline">
-            Sign Up
-          </Link>
-        </p>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 @import 'tailwindcss';
 
+
 :root {
-  --bg: #ffffff;
-  --bg-subtle: #f9fafb;
-  --text: #1f2937;
-  --text-muted: #6b7280;
+  --bg: #cbd5e1;              /* slate-300 */
+  --bg-subtle: #e2e8f0;       /* slate-200 */
+  --text: #0f172a;            /* slate-900 */
+  --text-muted: #1d4ed8;      /* blue-700 */
 }
 
 .dark {

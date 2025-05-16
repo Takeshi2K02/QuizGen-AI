@@ -27,86 +27,48 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: 'var(--bg)' }}>
-      <style>{`
-        .card {
-          background: var(--secondary);
-          border-radius: 8px;
-          box-shadow: var(--shadow);
-          padding: 20px;
-          max-width: 400px;
-          width: 100%;
-        }
-        .input-field {
-          width: 100%;
-          padding: 10px;
-          margin-bottom: 10px;
-          border: 1px solid var(--border);
-          border-radius: 4px;
-          font-size: 16px;
-          color: var(--accent);
-        }
-        .input-field:focus {
-          outline: none;
-          border-color: var(--primary);
-          box-shadow: 0 0 0 3px var(--focus);
-        }
-        .btn {
-          width: 100%;
-          padding: 10px;
-          background-color: var(--primary);
-          color: white;
-          border: none;
-          border-radius: 4px;
-          font-size: 16px;
-          cursor: pointer;
-        }
-        .btn:hover {
-          background-color: color-mix(in srgb, var(--primary) 90%, black);
-        }
-        a {
-          color: var(--primary);
-          text-decoration: none;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
-      `}</style>
-      <div className="card">
-        <h2 className="text-2xl font-bold mb-6 text-[var(--accent)]">Sign In</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--bg)] px-4">
+      <div className="w-full max-w-md bg-[var(--secondary)] rounded-2xl shadow-xl p-10">
+        <h2 className="text-3xl font-extrabold text-center text-[var(--accent)] mb-6">Welcome Back</h2>
+        <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
             name="username"
+            placeholder="Username"
+            required
             value={formData.username}
             onChange={handleChange}
-            placeholder="Email or Username"
-            required
-            className="input-field"
+            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <input
             type="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
             placeholder="Password"
             required
-            className="input-field"
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <div className="flex justify-between items-center text-sm">
             <label className="flex items-center text-[var(--accent)]">
               <input type="checkbox" className="mr-2" /> Remember me
             </label>
-            <Link to="/forgot-password">Forgot Password?</Link>
+            <Link to="/forgot-password" className="text-[var(--primary)] hover:underline">Forgot Password?</Link>
           </div>
           {error && <p className="text-sm text-red-600">{error}</p>}
-          <button type="submit" className="btn">
+          <button
+            type="submit"
+            className="w-full py-2 rounded-md bg-[var(--primary)] text-white font-medium hover:opacity-90 transition"
+          >
             Sign In
           </button>
-          <p className="text-center text-sm text-[var(--accent)] mt-4">
-            Don’t have an account? <Link to="/signup">Create one</Link>
-          </p>
         </form>
+        <p className="text-sm text-center mt-6 text-[var(--accent)]">
+          Don’t have an account?{' '}
+          <Link to="/signup" className="text-[var(--primary)] font-medium hover:underline">
+            Sign Up
+          </Link>
+        </p>
       </div>
     </div>
   );

@@ -28,40 +28,34 @@ const SignUp = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--bg)] px-4">
       <div className="w-full max-w-md bg-[var(--secondary)] rounded-2xl shadow-xl p-10">
-        <h2 className="text-3xl font-extrabold text-[var(--accent)] text-center mb-6">Create an Account</h2>
+        <h2 className="text-3xl font-extrabold text-center text-[var(--accent)] mb-6">Create an Account</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-[var(--accent)] mb-1">Username</label>
-            <input
-              type="text"
-              name="username"
-              required
-              value={formData.username}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-[var(--bg)] border border-[var(--tertiary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-[var(--accent)] mb-1">Email (optional)</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-[var(--bg)] border border-[var(--tertiary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-[var(--accent)] mb-1">Password</label>
-            <input
-              type="password"
-              name="password"
-              required
-              value={formData.password}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-[var(--bg)] border border-[var(--tertiary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-            />
-          </div>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            value={formData.username}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email (optional)"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+          />
           {error && <p className="text-sm text-red-500">{error}</p>}
           {success && <p className="text-sm text-green-600">{success}</p>}
           <button

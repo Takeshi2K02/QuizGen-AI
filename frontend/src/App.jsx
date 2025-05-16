@@ -3,6 +3,7 @@ import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
+import Quiz from './pages/Quiz';
 import ProtectedRoute from './components/ProtectedRoute';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
@@ -20,6 +21,14 @@ function App() {
         element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/quiz"
+        element={
+          <ProtectedRoute>
+            <Quiz />
           </ProtectedRoute>
         }
       />

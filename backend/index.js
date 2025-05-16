@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
 // Routes
-app.use('/api/auth', authRoutes); // ✅ Mount the auth routes
+app.use('/api/auth', authRoutes);
 
 // Sample route
 app.get('/', (req, res) => {

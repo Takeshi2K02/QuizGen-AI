@@ -28,8 +28,8 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--bg)] px-4">
-      <div className="w-full max-w-md bg-[var(--secondary)] rounded-2xl shadow-xl p-10">
-        <h2 className="text-3xl font-extrabold text-center text-[var(--accent)] mb-6">Welcome Back</h2>
+      <div className="w-full max-w-md bg-[var(--bg-subtle)] rounded-2xl shadow-lg p-10 transition-all duration-300 ease-in-out border border-[var(--border)]">
+        <h2 className="text-3xl font-bold text-center text-[var(--text)] mb-6">Welcome Back</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
@@ -38,7 +38,7 @@ const Login = () => {
             required
             value={formData.username}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+            className="w-full px-4 py-2 border border-[var(--border)] rounded-md bg-[var(--bg)] text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <input
             type="password"
@@ -47,23 +47,25 @@ const Login = () => {
             required
             value={formData.password}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+            className="w-full px-4 py-2 border border-[var(--border)] rounded-md bg-[var(--bg)] text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <div className="flex justify-between items-center text-sm">
-            <label className="flex items-center text-[var(--accent)]">
+            <label className="flex items-center text-[var(--text)]">
               <input type="checkbox" className="mr-2" /> Remember me
             </label>
-            <Link to="/forgot-password" className="text-[var(--primary)] hover:underline">Forgot Password?</Link>
+            <Link to="/forgot-password" className="text-[var(--primary)] hover:underline">
+              Forgot Password?
+            </Link>
           </div>
           {error && <p className="text-sm text-red-600">{error}</p>}
           <button
             type="submit"
-            className="w-full py-2 rounded-md bg-[var(--primary)] text-white font-medium hover:opacity-90 transition"
+            className="w-full py-2 rounded-md bg-[var(--primary)] text-white font-medium hover:bg-[var(--primary-hover)] transition"
           >
             Sign In
           </button>
         </form>
-        <p className="text-sm text-center mt-6 text-[var(--accent)]">
+        <p className="text-sm text-center mt-6 text-[var(--text-muted)]">
           Don’t have an account?{' '}
           <Link to="/signup" className="text-[var(--primary)] font-medium hover:underline">
             Sign Up

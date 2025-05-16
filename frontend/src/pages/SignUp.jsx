@@ -27,8 +27,8 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--bg)] px-4">
-      <div className="w-full max-w-md bg-[var(--secondary)] rounded-2xl shadow-xl p-10">
-        <h2 className="text-3xl font-extrabold text-center text-[var(--accent)] mb-6">Create an Account</h2>
+      <div className="w-full max-w-md bg-[var(--bg-subtle)] rounded-2xl shadow-lg p-10 transition-all duration-300 ease-in-out border border-[var(--border)]">
+        <h2 className="text-3xl font-bold text-center text-[var(--text)] mb-6">Create an Account</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
@@ -37,7 +37,7 @@ const SignUp = () => {
             required
             value={formData.username}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+            className="w-full px-4 py-2 border border-[var(--border)] rounded-md bg-[var(--bg)] text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <input
             type="email"
@@ -45,7 +45,7 @@ const SignUp = () => {
             placeholder="Email (optional)"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+            className="w-full px-4 py-2 border border-[var(--border)] rounded-md bg-[var(--bg)] text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <input
             type="password"
@@ -54,18 +54,18 @@ const SignUp = () => {
             required
             value={formData.password}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-[var(--tertiary)] rounded-md bg-[var(--bg)] text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+            className="w-full px-4 py-2 border border-[var(--border)] rounded-md bg-[var(--bg)] text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           {error && <p className="text-sm text-red-500">{error}</p>}
           {success && <p className="text-sm text-green-600">{success}</p>}
           <button
             type="submit"
-            className="w-full py-2 rounded-md bg-[var(--primary)] text-white font-medium hover:opacity-90 transition"
+            className="w-full py-2 rounded-md bg-[var(--primary)] text-white font-medium hover:bg-[var(--primary-hover)] transition"
           >
             Sign Up
           </button>
         </form>
-        <p className="text-sm text-center mt-6 text-[var(--accent)]">
+        <p className="text-sm text-center mt-6 text-[var(--text-muted)]">
           Already have an account?{' '}
           <Link to="/login" className="text-[var(--primary)] font-medium hover:underline">
             Sign In

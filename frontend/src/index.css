@@ -2,15 +2,21 @@
 
 
 :root {
-  --bg: #cbd5e1;              /* slate-300 */
-  --bg-subtle: #e2e8f0;       /* slate-200 */
-  --text: #0f172a;            /* slate-900 */
-  --text-muted: #1d4ed8;      /* blue-700 */
+  --bg: #e9f1fa;                /* Soft light blue background */
+  --bg-subtle: #ffffff;         /* White for cards and sections */
+  --text: #00324e;              /* Deep navy for high contrast */
+  --text-muted: #006a99;        /* Medium blue for muted/emphasis text */
+  --primary: #00ABE4;           /* Bright blue for buttons */
+  --primary-hover: #008cc0;     /* Slightly darker for hover states */
+  --border: #c2d9ec;            /* Light border for subtle outlines */
 }
 
 .dark {
-  --bg: #1f2937;
-  --bg-subtle: #374151;
-  --text: #f9fafb;
-  --text-muted: #d1d5db;
+  --bg: #0f172a;                /* Deep slate blue */
+  --bg-subtle: #1e293b;         /* Darker card bg */
+  --text: #f1f5f9;              /* Light text */
+  --text-muted: #94a3b8;        /* Slate-400 muted */
+  --primary: #00ABE4;           /* Same bright blue for consistency */
+  --primary-hover: #38bdf8;     /* Lighter hover in dark mode */
+  --border: #334155;            /* Dark border */
 }

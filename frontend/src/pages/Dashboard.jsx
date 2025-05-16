@@ -1,11 +1,10 @@
-import React from 'react';
+import CommonLayout from '../layouts/CommonLayout';
 
-const Dashboard = () => {
+export default function Dashboard() {
   return (
-    <div className="min-h-screen flex items-center justify-center text-2xl text-[var(--accent)]">
-      Welcome to your Dashboard 🧠
-    </div>
+    <CommonLayout>
+      <h2 className="text-xl font-semibold mb-4">Dashboard Overview</h2>
+      {/* your content */}
+    </CommonLayout>
   );
-};
-
-export default Dashboard;
+}

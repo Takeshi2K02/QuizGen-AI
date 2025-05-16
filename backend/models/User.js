@@ -33,6 +33,8 @@ const userSchema = new mongoose.Schema({
     name: String,
     avatar: String,
   },
+  resetToken: String,
+  resetTokenExpires: Date,
 });
 
 const User = mongoose.model('User', userSchema);

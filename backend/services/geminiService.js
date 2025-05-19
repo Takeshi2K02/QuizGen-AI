@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GEMINI_API_KEY } from '../config/gemini.js';
 
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 export async function generateQuizFromPassage(passage) {
   const prompt = `Generate a well-formatted MCQ in JSON from this passage:

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CommonLayout from '../layouts/CommonLayout';
 import { generateQuiz, fetchMyQuizzes } from '../api/quizApi';
 
@@ -87,16 +88,15 @@ export default function Quiz() {
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {quizzes.map((quiz) => (
-                <div
-                  key={quiz._id}
-                  className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] shadow p-4 hover:shadow-md transition"
-                >
-                  <h3 className="font-semibold text-lg text-[var(--primary)]">{quiz.title}</h3>
-                  <p className="text-sm text-[var(--text-muted)] truncate">{quiz.description || 'No description'}</p>
-                  <p className="text-xs text-[var(--text-muted)] mt-2">
-                    {quiz.questions.length} question{quiz.questions.length !== 1 ? 's' : ''}
-                  </p>
-                </div>
+                <Link to={`/quiz/${quiz._id}`} key={quiz._id}>
+                  <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] shadow p-4 hover:shadow-md transition">
+                    <h3 className="font-semibold text-lg text-[var(--primary)]">{quiz.title}</h3>
+                    <p className="text-sm text-[var(--text-muted)] truncate">{quiz.description || 'No description'}</p>
+                    <p className="text-xs text-[var(--text-muted)] mt-2">
+                      {quiz.questions.length} question{quiz.questions.length !== 1 ? 's' : ''}
+                    </p>
+                  </div>
+                </Link>
               ))}
             </div>
           )}

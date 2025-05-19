@@ -34,3 +34,19 @@ export async function fetchMyQuizzes() {
 
   return await res.json();
 }
+
+export async function getQuizById(id) {
+  const token = localStorage.getItem('token');
+
+  const res = await fetch(`${API_BASE}/quizzes/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch quiz');
+  }
+
+  return await res.json();
+}

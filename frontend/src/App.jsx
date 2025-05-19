@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import Quiz from './pages/Quiz';
+import QuizAttempt from './pages/QuizAttempt';
 import ProtectedRoute from './components/ProtectedRoute';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
@@ -32,6 +33,16 @@ function App() {
           </ProtectedRoute>
         }
       />
+
+      <Route 
+        path="/quiz/:id" 
+        element={
+          <ProtectedRoute>
+          <QuizAttempt />
+          </ProtectedRoute>
+        } 
+      />
+
     </Routes>
   );
 }

@@ -5,7 +5,9 @@ export function parseGeminiOutput(response) {
   try {
     const blocks = rawText
       .split(/\n\s*\n/)
-      .filter(Boolean);
+      .filter((block) =>
+        /Correct:\s*\[\d\]/.test(block) && /\d\.\s/.test(block)
+      );
 
     const grouped = [];
     let temp = '';
@@ -23,8 +25,11 @@ export function parseGeminiOutput(response) {
       const correct = correctMatch ? parseInt(correctMatch[1]) - 1 : null;
       const cleanText = block.replace(/Correct:\s*\[\d\]/, '').trim();
 
+      const explanationMatch = block.match(/Explanation:\s*(.*)/);
+      const explanation = explanationMatch ? explanationMatch[1].trim() : '';
+
       const lines = cleanText.split('\n');
-      const questionLine = lines[0] || 'No question found';
+      const questionLine = (lines[0] || 'No question found').replace(/^\d+\.\s*/, '');
       const answers = lines
         .slice(1)
         .filter(line => /^\d\.\s/.test(line))
@@ -35,7 +40,7 @@ export function parseGeminiOutput(response) {
         type: 'single',
         options: answers,
         correctAnswers: [correct],
-        explanation: '',
+        explanation,
       };
     });
 

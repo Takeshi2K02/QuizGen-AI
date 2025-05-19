@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import quizRoutes from './routes/quizRoutes.js';
 import questionRoutes from './routes/questionRoutes.js';
-import openaiRoutes from './routes/openaiRoutes.js';
 
 dotenv.config();
 

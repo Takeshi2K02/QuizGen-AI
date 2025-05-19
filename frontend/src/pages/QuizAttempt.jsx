@@ -91,7 +91,6 @@ export default function QuizAttempt() {
                       ) : (
                         <span className="text-red-600 font-medium">❌ Incorrect</span>
                       )}
-                      <p className="text-[var(--text-muted)] mt-1">Explanation: {q.explanation}</p>
                     </div>
                   )}
                 </div>

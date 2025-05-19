@@ -2,7 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import authRoutes from './routes/authRoutes.js'; // ✅ Add this line
+import authRoutes from './routes/authRoutes.js';
+import quizRoutes from './routes/quizRoutes.js';
+import questionRoutes from './routes/questionRoutes.js';
 
 dotenv.config();
 
@@ -23,6 +25,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/questions', questionRoutes);
+app.use('/api/quizzes', quizRoutes);
 
 // Sample route
 app.get('/', (req, res) => {

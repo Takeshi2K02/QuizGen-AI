@@ -1,3 +1,4 @@
+import express from 'express';
 import { generateQuiz, getMyQuizzes } from '../controllers/quizController.js';
 import { requireAuth } from '../middleware/authMiddleware.js';
 

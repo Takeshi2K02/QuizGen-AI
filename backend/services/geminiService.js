@@ -1,27 +1,17 @@
-import axios from 'axios';
-import { GEMINI_API_KEY } from '../config/gemini.js';
+import fetch from 'node-fetch';
 
+const API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
-export async function generateQuizFromPassage(passage) {
-  const prompt = `Generate a well-formatted MCQ in JSON from this passage:
+export const generateGeminiContent = async (prompt) => {
+  const res = await fetch(`${GEMINI_URL}?key=${API_KEY}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }]
+    })
+  });
 
-${passage}
-
-Use the following format:
-{
-  "question": "string",
-  "options": ["string", "string", "string", "string", "string"],
-  "correctIndex": number,
-  "explanation": "string"
-}`;
-
-  const res = await axios.post(
-    `${GEMINI_URL}?key=${GEMINI_API_KEY}`,
-    {
-      contents: [{ parts: [{ text: prompt }] }],
-    }
-  );
-
-  return res.data;
-}
+  const data = await res.json();
+  return data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+};

@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import quizRoutes from './routes/quizRoutes.js';
 import questionRoutes from './routes/questionRoutes.js';
+import openaiRoutes from './routes/openaiRoutes.js';
 
 dotenv.config();
 
@@ -26,7 +27,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/questions', questionRoutes);
-app.use('/api/quizzes', quizRoutes);
+app.use('/api/quiz', quizRoutes);
 
 // Sample route
 app.get('/', (req, res) => {

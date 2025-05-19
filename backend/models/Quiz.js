@@ -1,10 +1,20 @@
 import mongoose from 'mongoose';
 
+const embeddedQuestionSchema = new mongoose.Schema({
+  prompt: { type: String, required: true },
+  type: {
+    type: String,
+    enum: ['single', 'multiple', 'dragdrop'],
+    default: 'single',
+  },
+  options: [{ type: String }],
+  correctAnswers: [{ type: Number }],
+  explanation: { type: String, default: '' },
+}, { _id: false });
+
 const quizSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  description: String,
-  questions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' }],
-  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  questions: [embeddedQuestionSchema],
   createdAt: { type: Date, default: Date.now },
 });
 
